@@ -26,7 +26,6 @@ function calculateTotalCost(price, quantity, taxRate) {
   }
   return price * quantity * (1 + taxRate);
 }
-
 console.log(calculateTotalCost(20, 2, 0.03));
 
 // Task 3: Functions with Conditional Logic
@@ -41,3 +40,20 @@ function checkEligibility(age, isEmployed) {
 checkEligibility(17, true);
 
 // Task 4: Refactoring for Reusability
+function calculateTotalCostRefactor(price, quantity, taxRate, discount) {
+  if (
+    typeof price !== "number" ||
+    isNaN(price) ||
+    typeof quantity !== "number" ||
+    isNaN(quantity) ||
+    typeof taxRate !== "number" ||
+    isNaN(taxRate) ||
+    typeof discount !== "number" ||
+    isNaN(discount)
+  ) {
+    return "Invalid input";
+  }
+  return price * quantity * (1 + taxRate) * (1 - discount);
+}
+
+console.log(calculateTotalCostRefactor(10, 2, .03, .10));
